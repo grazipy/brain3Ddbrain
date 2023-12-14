@@ -13,18 +13,18 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4  # Use a versão mais recente do setup-node
         with:
-          node-version: '14'
+          node-version: '16'  # Atualize para a versão desejada, por exemplo, '16'
 
       - name: Install Dependencies
-        run: npm install  # Se você não usa Node.js, ajuste conforme necessário
+        run: npm install
 
       - name: Build
-        run: npm run build  # Se você não usa Node.js, ajuste conforme necessário
+        run: npm run build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./  # Se seus arquivos estão em outro diretório, ajuste conforme necessário
+          publish_dir: ./dist  # Ajuste conforme necessário
